@@ -26,7 +26,10 @@ go build -o build/alfmigcli
 ## Run 
 go run main.go cluster -describe
 
-go run main.go workflow -getalldef  
+## migrate workflows
+1. go run main.go workflow -getalldef  
+2. go run main.go workflow -getallandsave 'activiti$procesoPrenda2:91:15264316'
+4. 
+
 go run main.go workflow -getinst 'activiti$procesoPrenda2:91:15264316'
 go run main.go workflow -getinstask 'activiti$16264080'
-go run main.go workflow -getallandsave 'activiti$procesoPrenda2:91:15264316'

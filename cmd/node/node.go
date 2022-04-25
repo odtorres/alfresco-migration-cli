@@ -6,7 +6,8 @@ import (
 	"alfmigcli/services/fetch"
 	"alfmigcli/services/node"
 	"alfmigcli/services/pipe"
-	"alfmigcli/services/util"
+	"alfmigcli/services/workflow"
+	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
@@ -15,62 +16,41 @@ import (
 //Exec command line for node service
 func Exec(commands []string) {
 	nodeCmd := flag.NewFlagSet("node", flag.ExitOnError)
-	spath := nodeCmd.String("spath", "", "Node service search path")
-	sid := nodeCmd.String("sid", "", "Node service search id")
-	schildren := nodeCmd.String("schildren", "", "Get secondary childern")
-	json := nodeCmd.Bool("json", false, "Describe current information in Json format")
+	verifywfnodes := nodeCmd.Bool("verifywfnodes", false, "verify if nodes exist in the wf")
+
 	nodeCmd.Parse(commands) // os.Args[2:])
 
 	l := &cluster.List{}
-	// Use the Get method to read to do items from file
+	lwf := &workflow.List{}
+	lwfv := &workflow.ListVerify{}
 	pipe.StopIfErrorArg(l.Get())
+	pipe.StopIfErrorArg(lwf.Get())
+	currentCluster := pipe.StopIfErrorReturnArg(l.GetCurrent()).(cluster.Item)
+
 	switch {
-	case *spath != "":
-		currentCluster := pipe.StopIfErrorReturnArg(l.GetCurrent()).(cluster.Item)
+	case *verifywfnodes:
+		anyError := false
+		errorsSize := 0
+		for _, e := range *lwf {
+			result := pipe.StopIfErrorReturnArg(fetch.Get(currentCluster.ClusterURL + fmt.Sprintf(config.NodeSearchUUID, e.Tasks[0].Properties["cm_noderef"], currentCluster.ClusterTICKET))).([]byte)
+			gresponse := &node.List{}
+			json.Unmarshal(result, gresponse)
+			//fmt.Println(currentCluster.ClusterURL + fmt.Sprintf(config.NodeSearchUUID, e.Tasks[0].Properties["cm_noderef"], currentCluster.ClusterTICKET))
 
-		if currentCluster.ClusterTICKET == "" {
-			fmt.Fprintln(os.Stderr, "Please login first")
-			os.Exit(1)
+			if len(*gresponse) == 0 {
+				fmt.Println(e.Tasks[0].Properties["cm_noderef"])
+				anyError = true
+				errorsSize++
+			} else {
+				fmt.Println((*gresponse)[0].Name)
+				lwfv.Add(e)
+			}
 		}
-		result := pipe.StopIfErrorReturnArg(fetch.Get(currentCluster.ClusterURL + fmt.Sprintf(config.NodeSearchPath, *spath, currentCluster.ClusterTICKET))).([]byte)
-
-		if *json {
-			util.PrintIdentJson(result)
-		} else {
-			SearchResp := &node.GeneralResponse{}
-			pipe.StopIfErrorArg(SearchResp.Decode(result))
-			SearchResp.Response.PropertiesPrintToTable()
-			SearchResp.Response.DataPrintToTable()
+		if anyError {
+			fmt.Println("Missing nodes: " + fmt.Sprintf("%d", errorsSize))
 		}
-	case *schildren != "":
-		currentCluster := pipe.StopIfErrorReturnArg(l.GetCurrent()).(cluster.Item)
-
-		if currentCluster.ClusterTICKET == "" {
-			fmt.Fprintln(os.Stderr, "Please login first")
-			os.Exit(1)
-		}
-		result := pipe.StopIfErrorReturnArg(fetch.Get(currentCluster.ClusterURL + fmt.Sprintf(config.NodeSecondaryChildren, *schildren, currentCluster.ClusterTICKET))).([]byte)
-		util.PrintIdentJson(result)
-	case *sid != "":
-		currentCluster := pipe.StopIfErrorReturnArg(l.GetCurrent()).(cluster.Item)
-
-		if currentCluster.ClusterTICKET == "" {
-			fmt.Fprintln(os.Stderr, "Please login first")
-			os.Exit(1)
-		}
-
-		t := pipe.StopIfErrorReturnArg(util.GetParams(1, os.Stdin, nodeCmd.Args()...)).([]string)
-
-		result := pipe.StopIfErrorReturnArg(fetch.Get(currentCluster.ClusterURL + fmt.Sprintf(config.NodeSearchId, t[0], *sid, currentCluster.ClusterTICKET))).([]byte)
-
-		if *json {
-			util.PrintIdentJson(result)
-		} else {
-			SearchResp := &node.MessageResponse{}
-			pipe.StopIfErrorArg(SearchResp.Decode(result))
-			result := SearchResp.Response["msg"]
-			result.PropertiesPrintToTable()
-			result.DataPrintToTable()
+		if len(*lwfv) > 0 {
+			lwfv.Save()
 		}
 	default:
 		// Invalid flag provided

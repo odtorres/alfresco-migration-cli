@@ -16,6 +16,9 @@ func Get(url string) ([]byte, error) {
 		fmt.Fprintf(os.Stderr, "fetch: %v\n", err)
 		os.Exit(1)
 	}
+	if resp.StatusCode != 200 {
+		fmt.Println(resp.StatusCode)
+	}
 	b, err := ioutil.ReadAll(resp.Body)
 	resp.Body.Close()
 	if err != nil {

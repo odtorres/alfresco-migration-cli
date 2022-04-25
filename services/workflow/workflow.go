@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"os"
 	"time"
 )
 
@@ -81,6 +82,9 @@ type Wftask struct {
 //List of workflows
 type List []WfItem
 
+//List of workflows
+type ListVerify []WfItem
+
 //Decode Json Response
 func (l *WfDefAllResponse) Decode(text []byte) error {
 	return json.Unmarshal(text, l)
@@ -88,11 +92,6 @@ func (l *WfDefAllResponse) Decode(text []byte) error {
 
 func (l *WfResponse) Decode(text []byte) error {
 	return json.Unmarshal(text, l)
-}
-
-// Appends it to the list
-func (l *List) Add(t WfItem) {
-	*l = append(*l, t)
 }
 
 //PrintToTable prints outs a formatted table
@@ -111,10 +110,56 @@ func (l *WfResponse) PrintToTable() {
 	util.PrintToTable([]string{"#", "Id", "Name", "Tasks"}, data)
 }
 
+// Appends it to the list
+func (l *List) Add(t WfItem) {
+	*l = append(*l, t)
+}
+
 func (l *List) Save() error {
 	js, err := json.Marshal(l)
 	if err != nil {
 		return err
 	}
 	return ioutil.WriteFile(config.FileNameWorkflow, js, 0644)
+}
+
+func (l *List) Get() error {
+	file, err := ioutil.ReadFile(config.FileNameWorkflow)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil
+		}
+		return err
+	}
+	if len(file) == 0 {
+		return nil
+	}
+	return json.Unmarshal(file, l)
+}
+
+// Appends it to the list
+func (l *ListVerify) Add(t WfItem) {
+	*l = append(*l, t)
+}
+
+func (l *ListVerify) Save() error {
+	js, err := json.Marshal(l)
+	if err != nil {
+		return err
+	}
+	return ioutil.WriteFile(config.FileNameWorkflowVerify, js, 0644)
+}
+
+func (l *ListVerify) Get() error {
+	file, err := ioutil.ReadFile(config.FileNameWorkflowVerify)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil
+		}
+		return err
+	}
+	if len(file) == 0 {
+		return nil
+	}
+	return json.Unmarshal(file, l)
 }
