@@ -32,7 +32,7 @@ func Exec(commands []string) {
 		anyError := false
 		errorsSize := 0
 		for _, e := range *lwf {
-			result := pipe.StopIfErrorReturnArg(fetch.Get(currentCluster.ClusterURL + fmt.Sprintf(config.NodeSearchUUID, e.Tasks[0].Properties["cm_noderef"], currentCluster.ClusterTICKET))).([]byte)
+			result := pipe.StopIfErrorReturnArg(fetch.GetCookies(currentCluster.ClusterURL+fmt.Sprintf(config.NodeSearchUUID, e.Tasks[0].Properties["cm_noderef"], currentCluster.ClusterTICKET), currentCluster.ClusterTICKET)).([]byte)
 			gresponse := &node.List{}
 			json.Unmarshal(result, gresponse)
 			//fmt.Println(currentCluster.ClusterURL + fmt.Sprintf(config.NodeSearchUUID, e.Tasks[0].Properties["cm_noderef"], currentCluster.ClusterTICKET))

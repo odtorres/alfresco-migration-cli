@@ -14,7 +14,8 @@ const UserInfo = "/alfresco/service/api/login/ticket/%s"
 const GetAllDef = "/alfresco/service/api/workflow-definitions?alf_ticket=%s"
 const GetWorkfInst = "/alfresco/service/api/workflow-instances?definitionId=%s&state=active&alf_ticket=%s"
 const GetWorkfInstTask = "/alfresco/service/api/workflow-instances/%s?includeTasks=true&alf_ticket=%s"
-const CreateWorkflow = "/alfresco/service/api/workflow-instances/%s?includeTasks=true&alf_ticket=%s"
+const PostCreateWorkflow = "/alfresco/api/-default-/public/workflow/versions/1/processes?alf_ticket=%s"
+const PutUpdateTask = "/alfresco/api/-default-/public/workflow/versions/1/tasks/%s?select=state,variables&alf_ticket=%s"
 
 ///Node
 

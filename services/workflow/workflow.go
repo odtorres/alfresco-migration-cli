@@ -79,6 +79,33 @@ type Wftask struct {
 	Properties     map[string]interface{} `json:"properties"`
 }
 
+type ResponseEnvelopeCreateWF struct {
+	Entry ResponseCreateWF `json:"entry"`
+	Error ErrorCreateWF    `json:"error"`
+}
+
+type ResponseCreateWF struct {
+	Id                        string `json:"id"`
+	ProcessDefinitionId       string `json:"processDefinitionId"`
+	ProcessDefinitionKey      string `json:"processDefinitionKey"`
+	BusinessKey               string `json:"businessKey"`
+	StartedAt                 string `json:"startedAt"`
+	EndedAt                   string `json:"endedAt"`
+	DurationInMs              int    `json:"durationInMs"`
+	StartActivityDefinitionId string `json:"startActivityDefinitionId"`
+	EndActivityDefinitionId   string `json:"endActivityDefinitionId"`
+	StartUserId               string `json:"startUserId"`
+	DeleteReason              string `json:"deleteReason"`
+}
+type ErrorCreateWF struct {
+	ErrorKey       string `json:"errorKey"`
+	StatusCode     int    `json:"statusCode"`
+	BriefSummary   string `json:"id"`
+	StackTrace     string `json:"stackTrace"`
+	DescriptionURL string `json:"descriptionURL"`
+	LogId          string `json:"logId"`
+}
+
 //List of workflows
 type List []WfItem
 
@@ -86,6 +113,10 @@ type List []WfItem
 type ListVerify []WfItem
 
 //Decode Json Response
+func (l *ResponseEnvelopeCreateWF) Decode(text []byte) error {
+	return json.Unmarshal(text, l)
+}
+
 func (l *WfDefAllResponse) Decode(text []byte) error {
 	return json.Unmarshal(text, l)
 }
@@ -101,6 +132,18 @@ func (l *WfDefAllResponse) PrintToTable() {
 		data = append(data, []string{fmt.Sprintf("%d", k+1), t.Id, t.Name, t.Version})
 	}
 	util.PrintToTable([]string{"#", "Id", "Name", "Version"}, data)
+}
+
+func (l *ResponseEnvelopeCreateWF) PrintToTable() {
+	var data = [][]string{}
+
+	if (l.Error == ErrorCreateWF{}) {
+		data = append(data, []string{fmt.Sprintf("%d", 1), l.Entry.Id, l.Entry.ProcessDefinitionId, l.Entry.ProcessDefinitionKey})
+	} else {
+		data = append(data, []string{fmt.Sprintf("%d", 1), l.Error.ErrorKey, l.Error.BriefSummary, l.Error.StackTrace})
+	}
+
+	util.PrintToTable([]string{"#", "Id", "ProcessDefinition", "Business"}, data)
 }
 
 func (l *WfResponse) PrintToTable() {
