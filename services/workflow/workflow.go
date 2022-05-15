@@ -153,21 +153,38 @@ func (l *WfResponse) PrintToTable() {
 	util.PrintToTable([]string{"#", "Id", "Name", "Tasks"}, data)
 }
 
-// Appends it to the list
 func (l *List) Add(t WfItem) {
 	*l = append(*l, t)
 }
 
-func (l *List) Save() error {
+/*func (l *List) Get(pos int) WfItem {
+	return *l[pos]
+}*/
+
+func (l *List) Save(file_name string) error {
 	js, err := json.Marshal(l)
 	if err != nil {
 		return err
 	}
-	return ioutil.WriteFile(config.FileNameWorkflow, js, 0644)
+	return ioutil.WriteFile(file_name+".json", js, 0644)
 }
 
-func (l *List) Get() error {
+func (l *List) GetFromFile() error {
 	file, err := ioutil.ReadFile(config.FileNameWorkflow)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil
+		}
+		return err
+	}
+	if len(file) == 0 {
+		return nil
+	}
+	return json.Unmarshal(file, l)
+}
+
+func (l *List) GetByFileName(file_name string) error {
+	file, err := ioutil.ReadFile(file_name + ".json")
 	if err != nil {
 		if os.IsNotExist(err) {
 			return nil
@@ -193,7 +210,7 @@ func (l *ListVerify) Save() error {
 	return ioutil.WriteFile(config.FileNameWorkflowVerify, js, 0644)
 }
 
-func (l *ListVerify) Get() error {
+func (l *ListVerify) GetByFileName() error {
 	file, err := ioutil.ReadFile(config.FileNameWorkflowVerify)
 	if err != nil {
 		if os.IsNotExist(err) {

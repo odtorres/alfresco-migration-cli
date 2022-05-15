@@ -36,7 +36,8 @@ go run main.go cluster -describe
 
 ## migrate workflows
 1. go run main.go workflow -getalldef  
-2. go run main.go workflow -getallandsave 'activiti$procesoPrenda2:91:15264316'
+2. go run main.go workflow -getallandsave 'activiti$bpoProccess' // rename worflow.json 
+2. go run main.go workflow -getallandsave 'activiti$validationProccess' // rename worflow.json 
 3. go run main.go node -verifywfnodes
 4. go run main.go workflow -create '[{ "processDefinitionKey": "activitiAdhoc", "variables": {"bpm_assignee": "fred"} }]'
 +---+-----------+-------------------+
@@ -44,7 +45,7 @@ go run main.go cluster -describe
 +---+-----------+-------------------+
 | 1 | 160840729 | activitiAdhoc:1:4 |
 +---+-----------+-------------------+
-5. 
+5. go run main.go workflow -updateTask 160840773 '{"state": "completed"}'
 
 go run main.go workflow -getinst 'activiti$procesoPrenda2:91:15264316'
 go run main.go workflow -getinstask 'activiti$16264080'

@@ -24,7 +24,7 @@ func Exec(commands []string) {
 	lwf := &workflow.List{}
 	lwfv := &workflow.ListVerify{}
 	pipe.StopIfErrorArg(l.Get())
-	pipe.StopIfErrorArg(lwf.Get())
+	pipe.StopIfErrorArg(lwf.GetFromFile())
 	currentCluster := pipe.StopIfErrorReturnArg(l.GetCurrent()).(cluster.Item)
 
 	switch {
