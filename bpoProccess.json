@@ -1,0 +1,1544 @@
+[
+    {
+        "id": "activiti$602473",
+        "url": "api/workflow-instances/activiti$602473",
+        "name": "activiti$bpoProccess",
+        "title": "BPO de Contratos",
+        "description": "Proceso de creación/revisión de documentos formales",
+        "version": "",
+        "isActive": true,
+        "startDate": "2019-11-14T13:56:31.236+01:00",
+        "priority": 2,
+        "message": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+        "endDate": "0001-01-01T00:00:00Z",
+        "dueDate": "0001-01-01T00:00:00Z",
+        "context": "",
+        "package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+        "initiator": {
+            "id": "",
+            "username": "SO13593",
+            "firstName": "Iacob",
+            "lastName": "Morariu",
+            "email": ""
+        },
+        "definitionUrl": "api/workflow-definitions/activiti$bpoProccess:175:594003",
+        "diagramUrl": "api/workflow-instances/activiti$602473/diagram",
+        "startTaskInstanceId": "activiti$start602473",
+        "definition": {
+            "id": "activiti$bpoProccess:175:594003",
+            "url": "api/workflow-definitions/activiti$bpoProccess:175:594003",
+            "name": "activiti$bpoProccess",
+            "title": "BPO de Contratos",
+            "description": "Proceso de creación/revisión de documentos formales",
+            "version": "175",
+            "startTaskDefinitionUrl": "api/classes/bpowf_startBpoTWorkflow",
+            "startTaskDefinitionType": "bpowf:startBpoTWorkflow",
+            "taskDefinitions": [
+                {
+                    "type": "bpowf:bpoRicohRequestContractInfo",
+                    "url": "api/classes/bpowf_bpoRicohRequestContractInfo"
+                },
+                {
+                    "type": "bpowf:comprasReview",
+                    "url": "api/classes/bpowf_comprasReview"
+                },
+                {
+                    "type": "bpowf:bpoSelectNextReview",
+                    "url": "api/classes/bpowf_bpoSelectNextReview"
+                },
+                {
+                    "type": "bpowf:bpoProcessResponse",
+                    "url": "api/classes/bpowf_bpoProcessResponse"
+                },
+                {
+                    "type": "bpowf:documnetationReview",
+                    "url": "api/classes/bpowf_documnetationReview"
+                },
+                {
+                    "type": "bpowf:providerSignReviewTask",
+                    "url": "api/classes/bpowf_providerSignReviewTask"
+                },
+                {
+                    "type": "bpowf:apoderadoReviewTask",
+                    "url": "api/classes/bpowf_apoderadoReviewTask"
+                },
+                {
+                    "type": "bpowf:gseWaitingReviewTask",
+                    "url": "api/classes/bpowf_gseWaitingReviewTask"
+                },
+                {
+                    "type": "bpowf:saveDocumentReview",
+                    "url": "api/classes/bpowf_saveDocumentReview"
+                }
+            ]
+        },
+        "tasks": [
+            {
+                "id": "activiti$2003248",
+                "url": "api/task-instances/activiti$2003248",
+                "name": "bpowf:bpoProcessResponse",
+                "title": "bpowfT03 - Waiting Review Response Task",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "IN_PROGRESS",
+                "path": "api/workflow-paths/activiti$2003245",
+                "isPooled": true,
+                "isEditable": true,
+                "isReassignable": false,
+                "isClaimable": true,
+                "isReleasable": false,
+                "outcome": "",
+                "owner": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": null,
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": null,
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2021-04-19T08:19:19.266Z",
+                    "bpm_status": "Not Yet Started",
+                    "bpm_taskId": "2003248",
+                    "bpowf_departmentOwner": "type1",
+                    "cm_content": null,
+                    "cm_created": "2021-04-19T08:19:19.266Z",
+                    "cm_name": "Task",
+                    "cm_owner": null
+                }
+            },
+            {
+                "id": "activiti$1058254",
+                "url": "api/task-instances/activiti$1058254",
+                "name": "bpowf:documnetationReview",
+                "title": "Aplicar  cambios al contrato",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$1058251",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "rejectTask",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2020-06-22T11:46:41.934Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "rejectTask",
+                    "bpm_outcomePropertyName": "bpowf:reviewOutcomeProvider",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2020-05-21T15:50:46.538Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "1058254",
+                    "bpowf_ccEmail": null,
+                    "bpowf_defaultBody": false,
+                    "bpowf_newBodyArea": null,
+                    "bpowf_providerLenguaje": "es",
+                    "bpowf_reviewOutcomeProvider": "rejectTask",
+                    "cm_content": null,
+                    "cm_created": "2020-05-21T15:50:46.538Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$1153556",
+                "url": "api/task-instances/activiti$1153556",
+                "name": "bpowf:bpoSelectNextReview",
+                "title": "Operativa BPO",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$602473",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "Task Done",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2020-06-22T11:48:01.036Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "Next",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2020-06-22T11:46:41.945Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "1153556",
+                    "bpowf_bpoReviwers": "type2",
+                    "bpowf_ccEmail": null,
+                    "bpowf_defaultBody": true,
+                    "bpowf_hasRevision": false,
+                    "bpowf_newBodyArea": "Enviado a AJ para que revise las modificaciones de clausulado del CM. ",
+                    "bpowf_providerLenguaje": "es",
+                    "bpowf_usuarioApoderado": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioAsesoria": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioCompras": [
+                        "acarmona@bankinter.com",
+                        "ptaboada@bankinter.com"
+                    ],
+                    "bpowf_usuarioDPO_RT": [
+                        "jagalan@bankinter.com"
+                    ],
+                    "bpowf_usuarioGSE": [
+                        "outsourcing@bankinter.com"
+                    ],
+                    "bpowf_usuarioGestor": [
+                        "jagalan@bankinter.com"
+                    ],
+                    "bpowf_usuarioProveedor": [
+                        "jortega@axesor.es",
+                        "oarce@axesor.es"
+                    ],
+                    "cm_content": null,
+                    "cm_created": "2020-06-22T11:46:41.945Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$1154455",
+                "url": "api/task-instances/activiti$1154455",
+                "name": "bpowf:bpoProcessResponse",
+                "title": "bpowfT03 - Waiting Review Response Task",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$1154452",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "Task Done",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2020-12-02T17:24:05.511Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "Next",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2020-06-22T11:48:01.041Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "1154455",
+                    "bpowf_departmentOwner": "type1",
+                    "bpowf_responseEmailDate": "2020-11-30T18:03:00.000Z",
+                    "cm_content": null,
+                    "cm_created": "2020-06-22T11:48:01.041Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$1552339",
+                "url": "api/task-instances/activiti$1552339",
+                "name": "bpowf:documnetationReview",
+                "title": "Aplicar  cambios al contrato",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$1552336",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "rejectTask",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2020-12-02T17:24:12.378Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "rejectTask",
+                    "bpm_outcomePropertyName": "bpowf:reviewOutcomeProvider",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2020-12-02T17:24:05.516Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "1552339",
+                    "bpowf_ccEmail": null,
+                    "bpowf_defaultBody": false,
+                    "bpowf_newBodyArea": null,
+                    "bpowf_providerLenguaje": "es",
+                    "bpowf_reviewOutcomeProvider": "rejectTask",
+                    "cm_content": null,
+                    "cm_created": "2020-12-02T17:24:05.516Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$1552391",
+                "url": "api/task-instances/activiti$1552391",
+                "name": "bpowf:bpoSelectNextReview",
+                "title": "Operativa BPO",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$602473",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "Task Done",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2020-12-02T17:24:51.691Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "Next",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2020-12-02T17:24:12.381Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "1552391",
+                    "bpowf_bpoReviwers": "type3",
+                    "bpowf_ccEmail": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_defaultBody": true,
+                    "bpowf_hasRevision": false,
+                    "bpowf_newBodyArea": "Enviadas indicaciones de AJ a GS. .",
+                    "bpowf_providerLenguaje": "es",
+                    "bpowf_usuarioApoderado": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioAsesoria": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioCompras": [
+                        "acarmona@bankinter.com",
+                        "ptaboada@bankinter.com"
+                    ],
+                    "bpowf_usuarioDPO_RT": [
+                        "jagalan@bankinter.com"
+                    ],
+                    "bpowf_usuarioGSE": [
+                        "outsourcing@bankinter.com",
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioGestor": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioProveedor": [
+                        "jortega@axesor.es",
+                        "oarce@axesor.es"
+                    ],
+                    "cm_content": null,
+                    "cm_created": "2020-12-02T17:24:12.381Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$1552993",
+                "url": "api/task-instances/activiti$1552993",
+                "name": "bpowf:bpoProcessResponse",
+                "title": "bpowfT03 - Waiting Review Response Task",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$1552990",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "Task Done",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2021-02-23T11:14:56.282Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "Next",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2020-12-02T17:24:51.699Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "1552993",
+                    "bpowf_departmentOwner": "type1",
+                    "bpowf_responseEmailDate": "2021-02-19T13:20:00.000Z",
+                    "cm_content": null,
+                    "cm_created": "2020-12-02T17:24:51.699Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$1818147",
+                "url": "api/task-instances/activiti$1818147",
+                "name": "bpowf:documnetationReview",
+                "title": "Aplicar  cambios al contrato",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$1818144",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "rejectTask",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2021-02-23T11:33:04.671Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "rejectTask",
+                    "bpm_outcomePropertyName": "bpowf:reviewOutcomeProvider",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2021-02-23T11:14:56.288Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "1818147",
+                    "bpowf_ccEmail": null,
+                    "bpowf_defaultBody": false,
+                    "bpowf_newBodyArea": null,
+                    "bpowf_providerLenguaje": "es",
+                    "bpowf_reviewOutcomeProvider": "rejectTask",
+                    "cm_content": null,
+                    "cm_created": "2021-02-23T11:14:56.288Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$1818199",
+                "url": "api/task-instances/activiti$1818199",
+                "name": "bpowf:bpoSelectNextReview",
+                "title": "Operativa BPO",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$602473",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "Task Done",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2021-02-23T11:34:04.558Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "Next",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2021-02-23T11:33:04.675Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "1818199",
+                    "bpowf_bpoReviwers": "type2",
+                    "bpowf_ccEmail": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_defaultBody": true,
+                    "bpowf_hasRevision": false,
+                    "bpowf_newBodyArea": "Enviado a Luis para su segunda revisión. ",
+                    "bpowf_providerLenguaje": "es",
+                    "bpowf_usuarioApoderado": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioAsesoria": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioCompras": [
+                        "acarmona@bankinter.com",
+                        "ptaboada@bankinter.com"
+                    ],
+                    "bpowf_usuarioDPO_RT": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioGSE": [
+                        "outsourcing@bankinter.com",
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioGestor": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioProveedor": [
+                        "jortega@axesor.es",
+                        "oarce@axesor.es"
+                    ],
+                    "cm_content": null,
+                    "cm_created": "2021-02-23T11:33:04.675Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$1818401",
+                "url": "api/task-instances/activiti$1818401",
+                "name": "bpowf:bpoProcessResponse",
+                "title": "bpowfT03 - Waiting Review Response Task",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$1818398",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "Task Done",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2021-03-24T16:14:59.702Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "Next",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2021-02-23T11:34:04.569Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "1818401",
+                    "bpowf_departmentOwner": "type1",
+                    "bpowf_responseEmailDate": "2021-03-18T09:14:00.000Z",
+                    "cm_content": null,
+                    "cm_created": "2021-02-23T11:34:04.569Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$1923803",
+                "url": "api/task-instances/activiti$1923803",
+                "name": "bpowf:documnetationReview",
+                "title": "Aplicar  cambios al contrato",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$1922700",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "rejectTask",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2021-03-24T16:15:55.561Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "rejectTask",
+                    "bpm_outcomePropertyName": "bpowf:reviewOutcomeProvider",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2021-03-24T16:14:59.771Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "1923803",
+                    "bpowf_ccEmail": null,
+                    "bpowf_defaultBody": false,
+                    "bpowf_newBodyArea": null,
+                    "bpowf_providerLenguaje": "es",
+                    "bpowf_reviewOutcomeProvider": "rejectTask",
+                    "cm_content": null,
+                    "cm_created": "2021-03-24T16:14:59.771Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$1923855",
+                "url": "api/task-instances/activiti$1923855",
+                "name": "bpowf:bpoSelectNextReview",
+                "title": "Operativa BPO",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$602473",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "Task Done",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2021-03-24T16:16:16.249Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "Next",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2021-03-24T16:15:55.566Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "1923855",
+                    "bpowf_bpoReviwers": "type4",
+                    "bpowf_ccEmail": null,
+                    "bpowf_defaultBody": false,
+                    "bpowf_hasRevision": false,
+                    "bpowf_newBodyArea": "Se nos ha notificado que, para esta contratación, existe tratamiento de datos. Esto significa que previo a la firma del contrato, como Gestor / Peticionario del Servicio, debes realizar una actuación adicional con las áreas que el Banco ha definido como responsables en la gestión de tratamiento de datos\n\n1.- Oficina del Delegado de Protección de Datos.\n\nAcción: enviar un correo a la oficina del DPO con el documento del servicio adjudicado adjuntado indicando que el servicio tiene tratamiento de datos: DelegadoProteccionDatos dpd@bankinter.com\n\nEllos te enviarán un Excel para clasificación inicial del servicio/proveedor y otro Excel que debes enviar al proveedor para que lo cumplimente.\n\nLuego, una vez pasado por DPO (y Asesoría Jurídica) ellos te dirán cuando han terminado con su parte.\n\n2.- Análisis de Riesgos Tecnológicos.\n\nAcción: mandar al buzón de Riesgos Tecnológicos el documento del servicio adjuntado, indicando que tiene tratamiento de datos: Buzón Análisis De Riesgos Tecnológicos art@bankinter.com. Ellos se pondrán en contacto contigo y te pedirán que les cuentes el proyecto, preguntarán si han pasado por el DPO y te pedirán que rellenes varios documentos o incluso que les hagas llegar algún documento al proveedor para cumplimentación. El final de todo el proceso, te harán llegar el documento anexo con los Requisitos de Seguridad Informática que aplican al servicio.\n\nEste anexo es el que se va a firmar y debes hacer llegar al BPO de Contratos para la formalización del contrato con el proveedor adjudicado. En caso de que tras este proceso se detecte un cambio de alcance que suponga trabajos adicionales a negociar con el proveedor, tendrás que contactar con el Dtor. de Compras responsable de la adjudicación para que oriente las acciones a realizar.",
+                    "bpowf_providerLenguaje": "es",
+                    "bpowf_usuarioApoderado": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioAsesoria": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioCompras": [
+                        "acarmona@bankinter.com",
+                        "ptaboada@bankinter.com"
+                    ],
+                    "bpowf_usuarioDPO_RT": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioGSE": [
+                        "outsourcing@bankinter.com",
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioGestor": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioProveedor": [
+                        "jortega@axesor.es",
+                        "oarce@axesor.es"
+                    ],
+                    "cm_content": null,
+                    "cm_created": "2021-03-24T16:15:55.566Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$1923954",
+                "url": "api/task-instances/activiti$1923954",
+                "name": "bpowf:bpoProcessResponse",
+                "title": "bpowfT03 - Waiting Review Response Task",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$1923951",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "Task Done",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2021-04-19T08:15:31.071Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "Next",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2021-03-24T16:16:16.254Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "1923954",
+                    "bpowf_departmentOwner": "type1",
+                    "bpowf_responseEmailDate": "2021-04-12T16:37:00.000Z",
+                    "cm_content": null,
+                    "cm_created": "2021-03-24T16:16:16.254Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$2002991",
+                "url": "api/task-instances/activiti$2002991",
+                "name": "bpowf:documnetationReview",
+                "title": "Aplicar  cambios al contrato",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$2002988",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "rejectTask",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2021-04-19T08:16:24.360Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "rejectTask",
+                    "bpm_outcomePropertyName": "bpowf:reviewOutcomeProvider",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2021-04-19T08:15:31.078Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "2002991",
+                    "bpowf_ccEmail": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_defaultBody": false,
+                    "bpowf_newBodyArea": null,
+                    "bpowf_providerLenguaje": "es",
+                    "bpowf_reviewOutcomeProvider": "rejectTask",
+                    "cm_content": null,
+                    "cm_created": "2021-04-19T08:15:31.078Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$2003146",
+                "url": "api/task-instances/activiti$2003146",
+                "name": "bpowf:bpoSelectNextReview",
+                "title": "Operativa BPO",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$602473",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "Task Done",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2021-04-19T08:19:19.240Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "Next",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2021-04-19T08:16:24.366Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "2003146",
+                    "bpowf_bpoReviwers": "type1",
+                    "bpowf_ccEmail": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_defaultBody": true,
+                    "bpowf_hasRevision": false,
+                    "bpowf_newBodyArea": "Lo primero de todo, pediros disculpas por la demora en la revisión de este contrato. Ha tenido que pasar por varios departamentos de AAJJ y esto ha supuesto una importante demora en la revisión. Os adjuntamos el borrador del contrato de la adjudicación referenciada en el asunto de este correo con las correspondientes revisiones y quedamos a la espera de vuestras consideraciones. En cuanto a la siguiente parte del mail, se puede ignorar, ya que la plataforma la genera de forma automática. ",
+                    "bpowf_providerLenguaje": "es",
+                    "bpowf_usuarioApoderado": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioAsesoria": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioCompras": [
+                        "acarmona@bankinter.com",
+                        "ptaboada@bankinter.com"
+                    ],
+                    "bpowf_usuarioDPO_RT": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioGSE": [
+                        "outsourcing@bankinter.com",
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioGestor": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioProveedor": [
+                        "jortega@axesor.es",
+                        "oarce@axesor.es"
+                    ],
+                    "cm_content": null,
+                    "cm_created": "2021-04-19T08:16:24.366Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$602524",
+                "url": "api/task-instances/activiti$602524",
+                "name": "bpowf:bpoRicohRequestContractInfo",
+                "title": "BPO Comprobar Campos Task",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$602473",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "rejectTask",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2019-11-14T13:02:26.494Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "rejectTask",
+                    "bpm_outcomePropertyName": "bpowf:reviewOutcomeRicoh",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2019-11-14T12:56:31.392Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "602524",
+                    "bpowf_ccEmail": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_contractFieldsOptions": null,
+                    "bpowf_contractFieldsOptions_isListProperty": "true",
+                    "bpowf_defaultBody": true,
+                    "bpowf_newBodyArea": "En la petición realizada a Ricoh de formalización de contrato, según consta en el asunto del correo, adjuntamos el borrador para mandar al proveedor. Pongo también a Alberto porque es la primera vez que utilizamos el nuevo modelo de Contrato Marco y hay unos cuantos comentarios con dudas respecto de cosas a incluir en el contrato. Quedamos a la espera de vuestras consideraciones.",
+                    "bpowf_providerLenguaje": "es",
+                    "bpowf_reviewOutcomeRicoh": "rejectTask",
+                    "bpowf_sendEmailOptions": [
+                        "option2"
+                    ],
+                    "bpowf_usuarioApoderado": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioAsesoria": [
+                        "lnuneza@bankinter.com"
+                    ],
+                    "bpowf_usuarioCompras": [
+                        "acarmona@bankinter.com",
+                        "ptaboada@bankinter.com"
+                    ],
+                    "bpowf_usuarioDPO_RT": [
+                        "jagalan@bankinter.com"
+                    ],
+                    "bpowf_usuarioGSE": [
+                        "outsourcing@bankinter.com"
+                    ],
+                    "bpowf_usuarioGestor": [
+                        "jagalan@bankinter.com"
+                    ],
+                    "bpowf_usuarioProveedor": [
+                        "mrabril@axesor.es"
+                    ],
+                    "cm_content": null,
+                    "cm_created": "2019-11-14T12:56:31.392Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$602667",
+                "url": "api/task-instances/activiti$602667",
+                "name": "bpowf:comprasReview",
+                "title": "Compras Review Task",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$602664",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "Task Done",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2019-11-19T09:10:09.430Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "Next",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2019-11-14T13:02:26.530Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "602667",
+                    "bpowf_contractFieldsOptions": null,
+                    "bpowf_contractFieldsOptions_isListProperty": "true",
+                    "bpowf_responseEmailDate": "2019-11-14T16:55:00.000Z",
+                    "cm_content": null,
+                    "cm_created": "2019-11-14T13:02:26.530Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$606434",
+                "url": "api/task-instances/activiti$606434",
+                "name": "bpowf:bpoRicohRequestContractInfo",
+                "title": "BPO Comprobar Campos Task",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$602473",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "approveTask",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2019-11-19T09:11:04.146Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "approveTask",
+                    "bpm_outcomePropertyName": "bpowf:reviewOutcomeRicoh",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2019-11-19T09:10:09.435Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "606434",
+                    "bpowf_ccEmail": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_contractFieldsOptions": null,
+                    "bpowf_contractFieldsOptions_isListProperty": "true",
+                    "bpowf_defaultBody": false,
+                    "bpowf_newBodyArea": null,
+                    "bpowf_providerLenguaje": "es",
+                    "bpowf_reviewOutcomeRicoh": "approveTask",
+                    "bpowf_sendEmailOptions": null,
+                    "bpowf_usuarioApoderado": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioAsesoria": [
+                        "lnuneza@bankinter.com"
+                    ],
+                    "bpowf_usuarioCompras": [
+                        "acarmona@bankinter.com",
+                        "ptaboada@bankinter.com"
+                    ],
+                    "bpowf_usuarioDPO_RT": [
+                        "jagalan@bankinter.com"
+                    ],
+                    "bpowf_usuarioGSE": [
+                        "outsourcing@bankinter.com"
+                    ],
+                    "bpowf_usuarioGestor": [
+                        "jagalan@bankinter.com"
+                    ],
+                    "bpowf_usuarioProveedor": [
+                        "mrabril@axesor.es"
+                    ],
+                    "cm_content": null,
+                    "cm_created": "2019-11-19T09:10:09.435Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$606545",
+                "url": "api/task-instances/activiti$606545",
+                "name": "bpowf:bpoSelectNextReview",
+                "title": "Operativa BPO",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$602473",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "Task Done",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2019-11-19T09:11:40.589Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "Next",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2019-11-19T09:11:04.148Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "606545",
+                    "bpowf_bpoReviwers": "type1",
+                    "bpowf_ccEmail": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_defaultBody": true,
+                    "bpowf_hasRevision": false,
+                    "bpowf_newBodyArea": "Adjuntamos borrador del contrato de la adjudicación referenciada en el asunto de este correo. \n\nPor favor, para la revisión del documento mantengan activado el control de cambios del Word. Queda pendiente la posibilidad de revisión del clausulado por parte del Área de Asesoría Jurídica de Bankinter.",
+                    "bpowf_providerLenguaje": "es",
+                    "bpowf_usuarioApoderado": [
+                        "bpocontratos@bankinter.com"
+                    ],
+                    "bpowf_usuarioAsesoria": [
+                        "lnuneza@bankinter.com"
+                    ],
+                    "bpowf_usuarioCompras": [
+                        "acarmona@bankinter.com",
+                        "ptaboada@bankinter.com"
+                    ],
+                    "bpowf_usuarioDPO_RT": [
+                        "jagalan@bankinter.com"
+                    ],
+                    "bpowf_usuarioGSE": [
+                        "outsourcing@bankinter.com"
+                    ],
+                    "bpowf_usuarioGestor": [
+                        "jagalan@bankinter.com"
+                    ],
+                    "bpowf_usuarioProveedor": [
+                        "mrabril@axesor.es"
+                    ],
+                    "cm_content": null,
+                    "cm_created": "2019-11-19T09:11:04.148Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$606648",
+                "url": "api/task-instances/activiti$606648",
+                "name": "bpowf:bpoProcessResponse",
+                "title": "bpowfT03 - Waiting Review Response Task",
+                "description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$606645",
+                "isPooled": true,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "Task Done",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2020-05-21T15:50:46.529Z",
+                    "bpm_context": null,
+                    "bpm_description": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "Next",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "",
+                    "bpm_packageItemActionGroup": "read_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": [
+                        "workspace://SpacesStore/b3525a09-73df-4fe6-9746-0295c8e9b9dc"
+                    ],
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_startDate": "2019-11-19T09:11:40.593Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "606648",
+                    "bpowf_departmentOwner": "type1",
+                    "bpowf_responseEmailDate": "2020-05-21T15:03:00.000Z",
+                    "cm_content": null,
+                    "cm_created": "2019-11-19T09:11:40.593Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593"
+                }
+            },
+            {
+                "id": "activiti$start602473",
+                "url": "api/task-instances/activiti$start602473",
+                "name": "bpowf:startBpoTWorkflow",
+                "title": "Start task",
+                "description": "Start task",
+                "state": "COMPLETED",
+                "path": "api/workflow-paths/activiti$602473",
+                "isPooled": false,
+                "isEditable": false,
+                "isReassignable": false,
+                "isClaimable": false,
+                "isReleasable": false,
+                "outcome": "Task Done",
+                "owner": {
+                    "id": "",
+                    "username": "SO13593",
+                    "firstName": "Iacob",
+                    "lastName": "Morariu",
+                    "email": ""
+                },
+                "creator": {
+                    "id": "",
+                    "username": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "email": ""
+                },
+                "properties": {
+                    "auditDate": "2019-10-15T10:46:00.000Z",
+                    "bpm_comment": null,
+                    "bpm_completedItems": null,
+                    "bpm_completionDate": "2019-11-14T12:56:31.236Z",
+                    "bpm_context": null,
+                    "bpm_description": null,
+                    "bpm_dueDate": null,
+                    "bpm_hiddenTransitions": [],
+                    "bpm_outcome": "Next",
+                    "bpm_package": "workspace://SpacesStore/dd30ea3e-58c2-4927-8d34-b056476f9c0d",
+                    "bpm_packageActionGroup": "add_package_item_actions",
+                    "bpm_packageItemActionGroup": "start_package_item_actions",
+                    "bpm_percentComplete": 0,
+                    "bpm_pooledActors": null,
+                    "bpm_priority": 2,
+                    "bpm_reassignable": true,
+                    "bpm_sendEMailNotifications": false,
+                    "bpm_startDate": "2019-11-14T12:56:31.236Z",
+                    "bpm_status": "Completed",
+                    "bpm_taskId": "start602473",
+                    "bpm_workflowDescription": "614-2024_2019_04272-Axesor-GEOCRM Bloque 3-Acceso a datos de mercado estadísticos.docx-90c8561a-32fb-4107-88f5-5c09f649d35e",
+                    "bpm_workflowDueDate": null,
+                    "bpm_workflowPriority": 2,
+                    "bpowf_bpoStartDateEmail": "2019-10-15T10:46:00.000Z",
+                    "bpowf_bpoStartEmail": null,
+                    "bpowf_nombreComprador": "Pedro Taboada de Toro",
+                    "bpowf_providerLenguaje": "es",
+                    "cancelled": false,
+                    "cm_content": null,
+                    "cm_created": "2019-11-14T12:56:31.236Z",
+                    "cm_name": "Task",
+                    "cm_owner": "SO13593",
+                    "companyhome": "workspace://SpacesStore/815e7b56-0dda-4574-861f-27de038e6b5d",
+                    "initiator": "workspace://SpacesStore/d541d49a-bda5-4315-bd0b-909759e807d4",
+                    "initiatorhome": "workspace://SpacesStore/73b0128a-750c-4fdc-9ca4-5559296fe087",
+                    "workflowinstanceid": "activiti$602473"
+                }
+            }
+        ]
+    }
+]

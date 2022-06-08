@@ -27,6 +27,7 @@ func Exec(commands []string) {
 	describe := workflowCmd.Bool("describe", false, "List all workflow")
 	create := workflowCmd.Bool("create", false, "create a workflow")
 	createByJSON := workflowCmd.Bool("createByJSON", false, "create a workflow by givin a json file")
+	createByJSONForm := workflowCmd.Bool("createByJSONForm", false, "create a workflow by givin a json file")
 	updateTask := workflowCmd.Bool("updateTask", false, "update a workflow task")
 	workflowCmd.Parse(commands) //os.Args[2:])
 
@@ -67,14 +68,39 @@ func Exec(commands []string) {
 		fmt.Println(fmt.Sprintf("%s %d", "Cantidad de procesos: ", len(*workflowListToCreate)))
 		for _, workflowElement := range *workflowListToCreate {
 			fmt.Println(workflowElement.Id)
-			workflowProperties, _ := json.Marshal(workflowElement.Tasks[len(workflowElement.Tasks)-1].Properties)
-			fmt.Println(fmt.Sprintf("[{ \"processDefinitionKey\": \"%s\", \"variables\": %s }]", workflowName, workflowProperties))
-			result := pipe.StopIfErrorReturnArg(fetch.PostCookies(currentCluster.ClusterURL+fmt.Sprintf(config.PostCreateWorkflow, currentCluster.ClusterTICKET), currentCluster.ClusterTICKET, []byte(t[0]))).([]byte)
+			TaskProperties := workflowElement.Tasks[len(workflowElement.Tasks)-1].Properties
+			util.RemoveNulls(TaskProperties)
+			workflowProperties, _ := json.Marshal(TaskProperties)
+			JsonPostData := fmt.Sprintf("[{ \"processDefinitionKey\": \"%s\", \"variables\": %s }]", workflowName, workflowProperties)
+			fmt.Println(JsonPostData) //workflowProperties
+			result := pipe.StopIfErrorReturnArg(fetch.PostCookies(currentCluster.ClusterURL+fmt.Sprintf(config.PostCreateWorkflow, currentCluster.ClusterTICKET), currentCluster.ClusterTICKET, []byte(JsonPostData))).([]byte)
 			fmt.Println(result)
 			responseECWF := &workflow.ResponseEnvelopeCreateWF{}
 			pipe.StopIfErrorArg(responseECWF.Decode(result))
 			responseECWF.PrintToTable()
 		}
+	case *createByJSONForm:
+		t := pipe.StopIfErrorReturnArg(util.GetParams(1, os.Stdin, workflowCmd.Args()...)).([]string)
+		workflowName := strings.Split(t[0], "$")[1]
+		fmt.Println(t[0])
+		workflowListToCreate := &workflow.List{}
+		workflowListToCreate.GetByFileName(workflowName)
+
+		fmt.Println(fmt.Sprintf("%s %d", "Cantidad de procesos: ", len(*workflowListToCreate)))
+		for _, workflowElement := range *workflowListToCreate {
+			fmt.Println(workflowElement.Id)
+			TaskProperties := workflowElement.Tasks[len(workflowElement.Tasks)-1].Properties
+			util.RemoveNulls(TaskProperties)
+			//workflowProperties, _ := json.Marshal(TaskProperties)
+			JsonPostData := fmt.Sprintf("{\"assoc_packageItems_added\": \"%s\",\"prop_bpowf_bpoStartDateEmail\": \"2019-10-15T10:46:00.000Z\", \"prop_bpowf_nombreComprador\": \"%s\" }", TaskProperties["bpm_package"], TaskProperties["bpowf_nombreComprador"])
+			fmt.Println(JsonPostData) //workflowProperties
+			result := pipe.StopIfErrorReturnArg(fetch.PostCookies(currentCluster.ClusterURL+fmt.Sprintf(config.PostCreateWorkflowForm, workflowName, currentCluster.ClusterTICKET), currentCluster.ClusterTICKET, []byte(JsonPostData))).([]byte)
+			fmt.Println(result)
+			/*responseECWF := &workflow.ResponseEnvelopeCreateWF{}
+			pipe.StopIfErrorArg(responseECWF.Decode(result))
+			responseECWF.PrintToTable()*/
+		}
+
 	case *getinst:
 		t := pipe.StopIfErrorReturnArg(util.GetParams(1, os.Stdin, workflowCmd.Args()...)).([]string)
 		result := pipe.StopIfErrorReturnArg(fetch.GetCookies(currentCluster.ClusterURL+fmt.Sprintf(config.GetWorkfInst, t[0], currentCluster.ClusterTICKET), currentCluster.ClusterTICKET)).([]byte)

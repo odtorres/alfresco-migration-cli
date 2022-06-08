@@ -47,7 +47,10 @@ go run main.go cluster -describe
 +---+-----------+-------------------+
 5. go run main.go workflow -updateTask 160840773 '{"state": "completed"}'
 
-go run main.go workflow -getinst 'activiti$procesoPrenda2:91:15264316'
+## variaton 
+4. go run main.go workflow -createByJSON 'activiti$-'
+
+go run main.go workflow -getinst 'activiti$-2:91:15264316'
 go run main.go workflow -getinstask 'activiti$16264080'
 
 1 *cobra

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"reflect"
 	"runtime"
 	"strings"
 
@@ -94,4 +95,27 @@ func IfWindowsElse(textWindows, textLinux string) string {
 		return textWindows
 	}
 	return textLinux
+}
+
+func RemoveNulls(m map[string]interface{}) {
+	val := reflect.ValueOf(m)
+	for _, e := range val.MapKeys() {
+		v := val.MapIndex(e)
+		if v.IsNil() {
+			delete(m, e.String())
+			continue
+		}
+		/*if e.String() == "initiator" ||
+			e.String() == "initiatorhome" ||
+			e.String() == "companyhome" ||
+			e.String() == "workflowinstanceid" {
+			delete(m, e.String())
+			continue
+		}*/
+		switch t := v.Interface().(type) {
+		// If key is a JSON object (Go Map), use recursion to go deeper
+		case map[string]interface{}:
+			RemoveNulls(t)
+		}
+	}
 }
